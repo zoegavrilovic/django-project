@@ -1,0 +1,17 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'approda/style.css' %}">
+
+<!DOCTYPE html>
+<head>
+  <title>Roda Megamarket</title>
+</head>
+
+<body>
+  {% include 'approda/navbar.html' %}
+  {% block content %}
+
+  {% endblock %}
+</body>
+
+</html>

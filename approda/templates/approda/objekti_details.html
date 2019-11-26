@@ -1,0 +1,21 @@
+{% extends 'approda/base.html' %}
+{% block content %}
+<ul>
+  <li><h3>PIB: {{ object.pib }}</h3></li>
+  <li><h3>Naziv: {{ object.naziv }}</h3></li>
+  <li><h3>Adresa: {{ object.adresa }}</h3></li>
+  <li><h3>Grad: {{ object.grad}}</h3></li>
+  <li><h3>Broj telefona: {{ object.broj_telefona }}</h3></li>
+</ul>
+
+<td><a class="details_f" href="{% url 'objekti_update' object.pib %}">Izmena</a></td>
+<td><a class="details_f" href="{% url 'objekti_delete' object.pib %}">Brisanje</a></td>
+{% endblock %}
+<!--
+<h1>{{ question.question_text }}</h1>
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }}</li>
+{% endfor %}
+</ul>
+-->

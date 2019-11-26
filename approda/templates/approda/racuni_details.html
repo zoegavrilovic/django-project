@@ -1,0 +1,14 @@
+{% extends 'approda/base.html' %}
+{% block content %}
+<ul>
+  <li><h3>ID: {{ object.racunid }}</h3></li>
+  <li><h3>Datum: {{ object.datum }}</h3></li>
+  <li><h3>Vreme: {{ object.vreme }}</h3></li>
+  <li><h3>Ukupno: {{ object.ukupno }}</h3></li>
+  <li><h3>Kartica: {{ object.kartica }}</h3></li>
+  <li><h3>JMBG: {{ object.jmbg }}</h3></li>
+</ul>
+
+<td><a class="details_f" href="{% url 'racuni_update' object.racunid %}">Izmena</a></td>
+<td><a class="details_f" href="{% url 'racuni_delete' object.racunid %}">Brisanje</a></td>
+{% endblock %}

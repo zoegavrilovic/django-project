@@ -1,0 +1,27 @@
+{% extends 'approda/base.html' %}
+{% block content %}
+{% if otpremnice %}
+<table>
+  <tr>
+    <th>Sifra otpremnice</th>
+    <th>Datum otpreme</th>
+    <th>Dobavljac</th>
+
+    <th colspan="2"><a class="features" href= "{% url 'otpremnice_create' %}"> + Dodati zapis</a></th>
+  </tr>
+    {% for o in otpremnice %}
+
+    <tr>
+    <td><a href = "{% url 'otpremnice_details' o.sifra_otpremnice %}">{{ o.sifra_otpremnice }}</a></td>
+    <td>{{ o.datum_otpreme }}</td>
+    <td>{{ o.sifra_dobavljaca.naziv }}</td>
+
+    <td><a class="features" href="{% url 'otpremnice_update' o.sifra_otpremnice %}">Izmena</a></td>
+    <td><a class="features" href="{% url 'otpremnice_delete' o.sifra_otpremnice %}">Brisanje</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p> Trenutno ne postoji nijedna otpremnica. </p>
+{% endif %}
+{% endblock %}

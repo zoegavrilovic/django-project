@@ -1,0 +1,51 @@
+{% extends 'approda/base.html' %}
+{% block content %}
+<table class="table_f">
+    <tr>
+      <th colspan="2">Evidencija prijema: {{ object.naziv_objekta }}</th>
+    </tr>
+    <tr>
+      <td>Sifra otpremnice</td>
+      <td>{{ object.sifra_otpremnice.sifra_otpremnice }}</td>
+    </tr>
+    <tr>
+    <td>Sifra artikla</td>
+    <td>{{ object.sifra_artikla.sifra_artikla }}</td>
+    </tr>
+    <tr>
+    <td>Naziv artikla</td>
+    <td>{{ object.sifra_artikla.naziv }}</td>
+    </tr>
+    <tr>
+      <td>Jedinica mere</td>
+      <td>{{ object.sifra_artikla.jedinica_mere }}</td>
+    </tr>
+    <tr>
+      <td>Kolicina</td>
+      <td>{{ object.kolicina }}</td>
+    </tr>
+    <tr>
+      <td>Rok trajanja</td>
+      <td>{{ object.sifra_artikla.rok_trajanja }}</td>
+    </tr>
+    <tr>
+      <td>PIB</td>
+      <td>{{ object.pib.pib }}</td>
+    </tr>
+    <tr>
+      <td>Objekat</td>
+      <td>{{ object.naziv_objekta }}</td>
+    </tr>
+    <tr>
+      <td>Adresa</td>
+      <td>{{ object.pib.adresa }}</td>
+    </tr>
+    <tr>
+      <td>Dobavljac</td>
+      <td>{{ object.sifra_otpremnice.sifra_dobavljaca.naziv }}</td>
+    </tr>
+    <tr>
+      <td colspan="2">Potpis:_____________________</td>
+    </tr>
+</table>
+{% endblock %}

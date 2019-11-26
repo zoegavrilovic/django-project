@@ -1,0 +1,25 @@
+{% extends 'approda/base.html' %}
+{% block content %}
+{% if dobavljaci %}
+<table>
+  <tr>
+    <th>Sifra dobavljaca</th>
+    <th>Naziv</th>
+
+    <th colspan="2"><a class="features" href= "{% url 'dobavljaci_create' %}"> + Dodati zapis</a></th>
+  </tr>
+    {% for d in dobavljaci %}
+
+    <tr>
+    <td><a href = "{% url 'dobavljaci_details' d.sifra_dobavljaca %}">{{ d.sifra_dobavljaca }}</a></td>
+    <td>{{ d.naziv }}</td>
+
+    <td><a class="features" href="{% url 'dobavljaci_update' d.sifra_dobavljaca %}">Izmena</a></td>
+    <td><a class="features" href="{% url 'dobavljaci_delete' d.sifra_dobavljaca %}">Brisanje</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p> Trenutno ne postoji nijedan dobavljac. </p>
+{% endif %}
+{% endblock %}

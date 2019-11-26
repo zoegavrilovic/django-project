@@ -1,0 +1,10 @@
+{% extends 'approda/base.html' %}
+{% block content %}
+<ul>
+  <li><h3>Sifra dobavljaca: {{ object.sifra_dobavljaca }}</h3></li>
+  <li><h3>Naziv: {{ object.naziv }}</h3></li>
+</ul>
+
+<td><a class="details_f" href="{% url 'dobavljaci_update' object.sifra_dobavljaca %}">Izmena</a></td>
+<td><a class="details_f" href="{% url 'dobavljaci_delete' object.sifra_dobavljaca %}">Brisanje</a></td>
+{% endblock %}

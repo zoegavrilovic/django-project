@@ -1,0 +1,14 @@
+{% extends 'approda/base.html' %}
+{% block content %}
+<ul>
+  <li><h3>Kolicina: {{ object.kolicina }}</h3></li>
+  <li><h3>Broj kalkulacija: {{ object.broj_kalkulacija }}</h3></li>
+  <li><h3>Artikal: {{ object.sifra_artikla }}</h3></li>
+  <li><h3><a href = "{% url 'objekti_details' object.pib.pib %}">Objekat: {{ object.pib.pib }} - Naziv: {{ object.pib.naziv }}</a></h3></li>
+  <li><h3>Otpremnica: {{ object.sifra_otpremnice}}</h3></li>
+  <li><h3>Naziv objekta: {{ object.naziv_objekta}}</h3></li>
+</ul>
+
+<td><a class="details_f" href="{% url 'evidencije_prijema_update' object.pk_evidencije_prijema %}">Izmena</a></td>
+<td><a class="details_f" href="{% url 'evidencije_prijema_delete' object.pk_evidencije_prijema %}">Brisanje</a></td>
+{% endblock %}

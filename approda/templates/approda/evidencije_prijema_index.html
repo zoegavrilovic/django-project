@@ -1,0 +1,33 @@
+{% extends 'approda/base.html' %}
+{% block content %}
+{% if evidencije_prijema %}
+<table>
+  <tr>
+    <th>Id</th>
+    <th>PIB</th>
+    <th>Objekat</th>
+    <th>Artikal</th>
+    <th>Kolicina</th>
+    <th>Dobavljac</th>
+    <th colspan="3"><a class="features" href= "{% url 'evidencije_prijema_create' %}"> + Dodati zapis</a></th>
+  </tr>
+    {% for e in evidencije_prijema %}
+
+    <tr>
+    <td><a href = "{% url 'evidencije_prijema_details' e.pk_evidencije_prijema %}">{{ e.pk_evidencije_prijema }}</a></td>
+    <td>{{ e.pib.pib }}</td>
+    <td>{{ e.naziv_objekta }}</td>
+    <td>{{ e.sifra_artikla.naziv }}</td>
+    <td>{{ e.kolicina }}</td>
+    <td>{{ e.sifra_otpremnice.sifra_dobavljaca.naziv }}</td>
+
+    <td><a class="features" href="{% url 'evidencije_prijema_update' e.pk_evidencije_prijema %}">Izmena</a></td>
+    <td><a class="features" href="{% url 'evidencije_prijema_delete' e.pk_evidencije_prijema %}">Brisanje</a></td>
+    <td><a class="features" href="{% url 'evidencije_prijema_izrada' e.pk_evidencije_prijema %}">Izrada</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p> Trenutno ne postoji nijedna evidencija prijema. </p>
+{% endif %}
+{% endblock %}

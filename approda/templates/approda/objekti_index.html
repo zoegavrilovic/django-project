@@ -1,0 +1,27 @@
+{% extends 'approda/base.html' %}
+{% block content %}
+{% if objekti %}
+<table>
+  <tr>
+    <th>PIB</th>
+    <th>Naziv</th>
+    <th>Adresa</th>
+    <th>Grad</th>
+    <th colspan="2"><a class="features" href= "{% url 'objekti_create' %}"> + Dodati zapis</a></th>
+  </tr>
+    {% for o in objekti %}
+    <tr>
+    <td><a href = "{% url 'objekti_details' o.pib %}">{{ o.pib }}</a></td>
+    <td>{{ o.naziv }}</td>
+    <td>{{ o.adresa }}</td>
+    <td>{{ o.grad }}</td>
+    <td><a class="features" href="{% url 'objekti_update' o.pib %}">Izmena</a></td>
+    <td><a class="features" href="{% url 'objekti_delete' o.pib %}">Brisanje</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+    <p> Trenutno ne postoji nijedan objekat. </p>
+{% endif %}
+{% endblock %}

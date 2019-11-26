@@ -1,0 +1,33 @@
+{% extends 'approda/base.html' %}
+{% block content %}
+{% if racuni %}
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Datum</th>
+    <th>Vreme</th>
+    <th>Kartica</th>
+    <th>Jmbg</th>
+    <th>Ukupno</th>
+
+    <th colspan="2"><a class="features" href= "{% url 'racuni_create' %}"> + Dodati zapis</a></th>
+  </tr>
+    {% for r in racuni %}
+
+    <tr>
+    <td><a href = "{% url 'racuni_details' r.racunid %}">{{ r.racunid }}</a></td>
+    <td>{{ r.datum }}</td>
+    <td>{{ r.vreme }}</td>
+    <td>{{ r.kartica }}</td>
+    <td>{{ r.jmbg.jmbg }}</td>
+    <td>{{ r.ukupno }}</td>
+
+    <td><a class="features" href="{% url 'racuni_update' r.racunid %}">Izmena</a></td>
+    <td><a class="features" href="{% url 'racuni_delete' r.racunid %}">Brisanje</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p> Trenutno ne postoji nijedan racun. </p>
+{% endif %}
+{% endblock %}

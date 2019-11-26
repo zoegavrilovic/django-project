@@ -1,0 +1,31 @@
+{% extends 'approda/base.html' %}
+{% block content %}
+{% if stavke_racuna %}
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Racun</th>
+    <th>Kolicina</th>
+    <th>Artikal</th>
+    <th>Cena</th>
+
+    <th colspan="2"><a class="features" href= "{% url 'stavke_racuna_create' %}"> + Dodati zapis</a></th>
+  </tr>
+    {% for s in stavke_racuna %}
+
+    <tr>
+    <td><a href = "{% url 'stavke_racuna_details' s.pk_stavke_racuna %}">{{ s.pk_stavke_racuna }}</a></td>
+    <td>{{ s.racunid.racunid }}</td>
+    <td>{{ s.kolicina }}</td>
+    <td>{{ s.sifra_artikla.naziv }}</td>
+    <td>{{ s.sifra_artikla.cena }}</td>
+
+    <td><a class="features" href="{% url 'stavke_racuna_update' s.pk_stavke_racuna %}">Izmena</a></td>
+    <td><a class="features" href="{% url 'stavke_racuna_delete' s.pk_stavke_racuna %}">Brisanje</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p> Trenutno ne postoji nijedna stavka racuna. </p>
+{% endif %}
+{% endblock %}
