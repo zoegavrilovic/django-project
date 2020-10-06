@@ -3,7 +3,7 @@
 {% block content %}
 <div class="form_div">
 <form action='.', method='POST'>{% csrf_token %}
-  <h2>Da li zelite da obrisete racun "{{ object.racunid }}" ?</h2>
+  <h2>Da li želite da obrišete račun "{{ object.racunid }}" ?</h2>
   <p><input type="submit" value="Da" /> </p>
   <p><a href="{% url 'racuni_index' %}">Nazad</a></p>
 </form>

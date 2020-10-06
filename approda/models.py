@@ -18,7 +18,7 @@ class Racuni(models.Model):
     racunid = models.BigIntegerField(primary_key=True)
     datum = models.DateField()
     vreme = models.CharField(max_length=8)
-    ukupno = models.BigIntegerField()
+    ukupno = models.BigIntegerField(null=True)
     kartica = models.BigIntegerField(blank=True,null=True)
     jmbg = models.ForeignKey(Kupci, on_delete=models.CASCADE, db_column='jmbg')
     class Meta:
@@ -26,7 +26,7 @@ class Racuni(models.Model):
     def __str__(self):
         return "%s, %s, %s, %s, %s, %s" % (self.racunid, self.datum, self.vreme, self.ukupno, self.kartica, self.jmbg)
     def get_absolute_url(self):
-        return reverse("racuni_details", kwargs={"pk":self.racunid})
+        return reverse("racuni_details", kwargs={"id":self.racunid})
 
 class Artikli(models.Model):
     sifra_artikla = models.BigIntegerField(primary_key=True)
@@ -40,20 +40,21 @@ class Artikli(models.Model):
         return "%s, %s, %s, %s, %s" % (self.sifra_artikla, self.naziv, self.cena, self.jedinica_mere, self.rok_trajanja)
 
 class StavkeRacuna(models.Model):
-    pk_stavke_racuna = models.AutoField(primary_key=True)
+    # id = models.AutoField(primary_key=True)
     kolicina = models.IntegerField()
     sifra_artikla = models.ForeignKey(Artikli, on_delete=models.CASCADE, db_column='sifra_artikla')
     racunid = models.ForeignKey(Racuni, on_delete=models.CASCADE, db_column='racunid')
     class Meta:
+        managed = True
         db_table = 'stavke_racuna'
         unique_together = (('sifra_artikla', 'racunid'),)
     def __str__(self):
         return "%s, %s, %s" % (self.kolicina, self.sifra_artikla, self.racunid)
     def get_absolute_url(self):
-        return reverse("stavke_racuna_details", kwargs={"pk":self.pk_stavke_racuna})
+        return reverse("stavke_racuna_details", kwargs={"id":self.ID})
 
 class Objekti(models.Model):
-    pib = models.IntegerField(primary_key=True)
+    pib = models.BigIntegerField(primary_key=True)
     naziv = models.CharField(max_length=20)
     adresa = models.CharField(max_length=40)
     grad = models.CharField(max_length=15)
@@ -63,17 +64,17 @@ class Objekti(models.Model):
     def __str__(self):
         return "%s, %s, %s, %s, %s" % (self.pib, self.naziv, self.adresa, self.grad, self.broj_telefona)
     def get_absolute_url(self):
-        return reverse("objekti_details", kwargs={"pk":self.pib})
+        return reverse("objekti_details", kwargs={"id":self.pib})
 
 class Dobavljaci(models.Model):
-    sifra_dobavljaca = models.IntegerField(primary_key=True)
+    sifra_dobavljaca = models.BigIntegerField(primary_key=True)
     naziv = models.CharField(max_length=20)
     class Meta:
         db_table = 'dobavljaci'
     def __str__(self):
         return "%s, %s" % (self.sifra_dobavljaca, self.naziv)
     def get_absolute_url(self):
-        return reverse("dobavljaci_details", kwargs={"pk":self.sifra_dobavljaca})
+        return reverse("dobavljaci_details", kwargs={"id":self.sifra_dobavljaca})
 
 class Otpremnice(models.Model):
     sifra_otpremnice = models.BigIntegerField(primary_key=True)
@@ -85,23 +86,24 @@ class Otpremnice(models.Model):
     def __str__(self):
         return "%s, %s, %s" % (self.sifra_otpremnice, self.datum_otpreme, self.sifra_dobavljaca)
     def get_absolute_url(self):
-        return reverse("otpremnice_details", kwargs={"pk":self.sifra_otpremnice})
+        return reverse("otpremnice_details", kwargs={"id":self.sifra_otpremnice})
 
 class EvidencijePrijema(models.Model):
-    pk_evidencije_prijema = models.AutoField(primary_key=True)
+    # id = models.AutoField(primary_key=True)
     kolicina = models.IntegerField()
     broj_kalkulacija = models.IntegerField(blank=True, null=True)
     sifra_artikla = models.ForeignKey(Artikli, on_delete=models.CASCADE, db_column='sifra_artikla')
     pib = models.ForeignKey(Objekti, on_delete=models.CASCADE, db_column='pib')
     sifra_otpremnice = models.ForeignKey(Otpremnice, on_delete=models.CASCADE, db_column='sifra_otpremnice')
-    naziv_objekta = models.CharField(max_length=20)
+    naziv_objekta = models.CharField(max_length=20, null=True)
     class Meta:
+        managed = True
         db_table = 'evidencije_prijema'
         unique_together = (('sifra_artikla', 'pib', 'sifra_otpremnice'),)
     def __str__(self):
         return "%s, %s, %s, %s, %s, %s" % (self.kolicina, self.broj_kalkulacija, self.sifra_artikla, self.pib, self.sifra_otpremnice, self.naziv_objekta)
     def get_absolute_url(self):
-        return reverse("evidencije_prijema_details", kwargs={"pk":self.pk_evidencije_prijema})
+        return reverse("evidencije_prijema_details", kwargs={"id":self.ID})
 #That small bit of model code gives Django a lot of information. With it, Django is able to:
 
 #Create a database schema (CREATE TABLE statements) for this app.

@@ -1,9 +1,9 @@
 {% extends 'approda/base.html' %}
 {% block content %}
 <ul>
-  <li><h3>Sifra otpremnice: {{ object.sifra_otpremnice }}</h3></li>
+  <li><h3>Šifra otpremnice: {{ object.sifra_otpremnice }}</h3></li>
   <li><h3>Datum otpreme: {{ object.datum_otpreme }}</h3></li>
-  <li><h3>Dobavljac: {{ object.sifra_dobavljaca }}</h3></li>
+  <li><h3>Dobavljač: {{ object.sifra_dobavljaca }}</h3></li>
 </ul>
 
 <td><a class="details_f" href="{% url 'otpremnice_update' object.sifra_otpremnice %}">Izmena</a></td>

@@ -3,7 +3,7 @@
 {% if dobavljaci %}
 <table>
   <tr>
-    <th>Sifra dobavljaca</th>
+    <th>Šifra dobavljača</th>
     <th>Naziv</th>
 
     <th colspan="2"><a class="features" href= "{% url 'dobavljaci_create' %}"> + Dodati zapis</a></th>
@@ -20,6 +20,6 @@
     {% endfor %}
 </table>
 {% else %}
-    <p> Trenutno ne postoji nijedan dobavljac. </p>
+    <p> Trenutno ne postoji nijedan dobavljač. </p>
 {% endif %}
 {% endblock %}

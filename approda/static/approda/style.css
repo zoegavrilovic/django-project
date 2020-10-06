@@ -1,5 +1,5 @@
 h1, h2, h3 {
-    color: #FF1493;
+    color: black;
 }
 
 h1 {
@@ -7,12 +7,12 @@ h1 {
 }
 
 body {
-  background-image: url("images/background.png");
+  background-image: url("images/background.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  font: 1em "Book Antiqua", sans-serig;
+  font: 1.2em "Arial", sans-serig;
 }
 
 
@@ -21,7 +21,7 @@ nav ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #D8BFD8;
+  background-color: #6ba0c2;
 }
 
 nav li {
@@ -38,30 +38,29 @@ nav li a {
 }
 
 nav li a:hover {
-  background-color: #111;
+  background-color: #6ba0c2;
 }
 
 .form_div {
   margin: 90px auto;
   width: 40%;
-  border: 3px solid pink;
   padding: 10px;
 }
 
 table {
   border-collapse: collapse;
-  border-radius: 1.5em;
+  border-radius: 0;
   overflow: hidden;
-  width: 60%;
+  width: 70%;
   margin: 50px auto;
-  font: 1em "Book Antiqua", sans-serif;
+  font: 1em "Arial", sans-serif;
 }
 th {
-  color: #800080;
+  color: #6ba0c2;
   font-size: 1.2em;
 }
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid #6ba0c2;
   text-align: center;
   padding: 8px;
 }
@@ -69,14 +68,14 @@ tr {
   line-height: 25px;
 }
 tr:nth-child(even) {
-  background-color: #D8BFD8;
+  background-color: white;
 }
 
 tr:nth-child(odd) {
   background-color: white;
 }
 table a {
-  color: #556B2F;
+  color: #6ba0c2;
 }
 
 input, select {
@@ -84,44 +83,44 @@ input, select {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #6ba0c2;
+  border-radius: 0;
   box-sizing: border-box;
 }
 
 input[type=submit] {
   width: 100%;
-  background-color: pink;
+  background-color: #6ba0c2;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
-  border-radius: 4px;
+  border-radius: 0;
   cursor: pointer;
-  font: 1em "Book Antiqua", sans-serif;
+  font: 1em "Arial", sans-serif;
 }
 
 input:hover[type=submit] {
-  background-color: #556B2F;
+  background-color: #6ba0c2;
 }
 
 .features {
   float: right;
   padding: 0px 5px;
-  color: #8B4513;
+  color: #6ba0c2;
 }
 
 .details_f {
   margin: 0px 0px 0px 50px;
-  color: #8B4513;
+  color: #6ba0c2;
 }
 
 h3 a {
-  color: #556B2F;
+  color: #6ba0c2;
 }
 
 .button_f {
-  background-color: #556B2F;
+  background-color: #6ba0c2;
   border: none;
   color: white;
   padding: 16px 32px;
@@ -133,16 +132,15 @@ h3 a {
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 0;
   width: 48%;
   height: 15%;
-  font: 1.2em "Book Antiqua", sans-serif;
+  font: 1.2em "Arial", sans-serif;
 }
 
 .table_f {
   border-collapse:collapse;
-  border-radius: 0em;
-  border:3px solid black;
+  border-radius: 0;
 }
 
 .table_f tr:nth-child(even) {

@@ -1,13 +1,13 @@
 {% extends 'approda/base.html' %}
 {% block content %}
 
-<h1>Dobrodosli na administratorski sajt Rode Megamarketa!</h1>
+<h1>Administratorski sajt Roda Megamarketa</h1>
 <div class="form_div">
   <a href= "{% url 'evidencije_prijema_create' %}"><button class="button_f">Dodati evidenciju prijema</button></a>
   <a href= "{% url 'objekti_create' %}"><button class="button_f">Dodati objekat</button></a>
-  <a href= "{% url 'racuni_create' %}"><button class="button_f">Dodati racun</button></a>
-  <a href= "{% url 'stavke_racuna_create' %}"><button class="button_f">Dodati stavku racuna</button></a>
+  <a href= "{% url 'racuni_create' %}"><button class="button_f">Dodati račun</button></a>
+  <a href= "{% url 'stavke_racuna_create' %}"><button class="button_f">Dodati stavku računa</button></a>
   <a href= "{% url 'otpremnice_create' %}"><button class="button_f">Dodati otpremnicu</button></a>
-  <a href= "{% url 'dobavljaci_create' %}"><button class="button_f">Dodati dobavljaca</button></a>
+  <a href= "{% url 'dobavljaci_create' %}"><button class="button_f">Dodati dobavljača</button></a>
 </div>
 {% endblock %}

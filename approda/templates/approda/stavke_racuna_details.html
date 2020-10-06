@@ -1,11 +1,11 @@
 {% extends 'approda/base.html' %}
 {% block content %}
 <ul>
-  <li><h3>Kolicina: {{ object.kolicina }}</h3></li>
+  <li><h3>Količina: {{ object.kolicina }}</h3></li>
   <li><h3>Artikal: {{ object.sifra_artikla }}</h3></li>
-  <li><h3><a href = "{% url 'racuni_details' object.racunid.racunid %}">Racun: {{ object.racunid.racunid }} - Ukupno: {{ object.racunid.ukupno }}</a></h3></li>
+  <li><h3><a href = "{% url 'racuni_details' object.racunid.racunid %}">Račun: {{ object.racunid.racunid }} - Ukupno: {{ object.racunid.ukupno }}</a></h3></li>
 </ul>
 
-<td><a class="details_f" href="{% url 'stavke_racuna_update' object.pk_stavke_racuna %}">Izmena</a></td>
-<td><a class="details_f" href="{% url 'stavke_racuna_delete' object.pk_stavke_racuna %}">Brisanje</a></td>
+<td><a class="details_f" href="{% url 'stavke_racuna_update' object.id %}">Izmena</a></td>
+<td><a class="details_f" href="{% url 'stavke_racuna_delete' object.id %}">Brisanje</a></td>
 {% endblock %}

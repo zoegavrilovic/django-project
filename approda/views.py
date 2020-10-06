@@ -28,7 +28,7 @@ class DetailViewObjekti(generic.DetailView):
     model = Objekti
     template_name = 'approda/objekti_details.html'
     def get_object(self):
-        id_ = self.kwargs.get('pk')
+        id_ = self.kwargs.get('id')
         return get_object_or_404(Objekti, pib=id_)
 
 #There’s also a get_list_or_404() function, which works just as get_object_or_404() –
@@ -49,13 +49,13 @@ class ObjektiUpdateView(generic.UpdateView):
     def form_valid(self,form):
         return super().form_valid(form)
     def get_object(self):
-        id_ = self.kwargs.get('pk')
+        id_ = self.kwargs.get('id')
         return get_object_or_404(Objekti, pib=id_)
 
 class ObjektiDeleteView(generic.DeleteView):
     template_name = 'approda/objekti_delete.html'
     def get_object(self):
-        id_ = self.kwargs.get('pk')
+        id_ = self.kwargs.get('id')
         return get_object_or_404(Objekti, pib=id_)
     def get_success_url(self):
         return reverse("objekti_index")
@@ -66,14 +66,14 @@ class IndexViewEvidencijePrijema(generic.ListView):
     template_name = 'approda/evidencije_prijema_index.html'
     context_object_name = 'evidencije_prijema'
     def get_queryset(self):
-        return EvidencijePrijema.objects.order_by('pk_evidencije_prijema')
+        return EvidencijePrijema.objects.order_by('id')
 
 class DetailViewEvidencijePrijema(generic.DetailView):
     model =  EvidencijePrijema
     template_name = 'approda/evidencije_prijema_details.html'
     def get_object(self):
-        id_ = self.kwargs.get('pk')
-        return get_object_or_404(EvidencijePrijema, pk_evidencije_prijema=id_)
+        id_ = self.kwargs.get('id')
+        return get_object_or_404(EvidencijePrijema, id=id_)
 
 class EvidencijePrijemaCreateView(generic.CreateView):
     template_name = 'approda/evidencije_prijema_create.html'
@@ -88,14 +88,14 @@ class EvidencijePrijemaUpdateView(generic.UpdateView):
     def form_valid(self,form):
         return super().form_valid(form)
     def get_object(self):
-        id_ = self.kwargs.get('pk')
-        return get_object_or_404(EvidencijePrijema, pk_evidencije_prijema=id_)
+        id_ = self.kwargs.get('id')
+        return get_object_or_404(EvidencijePrijema, id=id_)
 
 class EvidencijePrijemaDeleteView(generic.DeleteView):
     template_name = 'approda/evidencije_prijema_delete.html'
     def get_object(self):
-        id_ = self.kwargs.get('pk')
-        return get_object_or_404(EvidencijePrijema, pk_evidencije_prijema=id_)
+        id_ = self.kwargs.get('id')
+        return get_object_or_404(EvidencijePrijema, id=id_)
     def get_success_url(self):
         return reverse("evidencije_prijema_index")
 
@@ -103,8 +103,8 @@ class EvidencijePrijemaIzradaView(generic.DetailView):
     model =  EvidencijePrijema
     template_name = 'approda/evidencije_prijema_izrada.html'
     def get_object(self):
-        id_ = self.kwargs.get('pk')
-        return get_object_or_404(EvidencijePrijema, pk_evidencije_prijema=id_)
+        id_ = self.kwargs.get('id')
+        return get_object_or_404(EvidencijePrijema, id=id_)
 
 #--------------------------------
 
@@ -118,7 +118,7 @@ class DetailViewRacuni(generic.DetailView):
     model =  Racuni
     template_name = 'approda/racuni_details.html'
     def get_object(self):
-        id_ = self.kwargs.get('pk')
+        id_ = self.kwargs.get('id')
         return get_object_or_404(Racuni, racunid=id_)
 
 class RacuniCreateView(generic.CreateView):
@@ -134,13 +134,13 @@ class RacuniUpdateView(generic.UpdateView):
     def form_valid(self,form):
         return super().form_valid(form)
     def get_object(self):
-        id_ = self.kwargs.get('pk')
+        id_ = self.kwargs.get('id')
         return get_object_or_404(Racuni, racunid=id_)
 
 class RacuniDeleteView(generic.DeleteView):
     template_name = 'approda/racuni_delete.html'
     def get_object(self):
-        id_ = self.kwargs.get('pk')
+        id_ = self.kwargs.get('id')
         return get_object_or_404(Racuni, racunid=id_)
     def get_success_url(self):
         return reverse("racuni_index")
@@ -151,14 +151,14 @@ class IndexViewStavkeRacuna(generic.ListView):
     template_name = 'approda/stavke_racuna_index.html'
     context_object_name = 'stavke_racuna'
     def get_queryset(self):
-        return StavkeRacuna.objects.order_by('pk_stavke_racuna')
+        return StavkeRacuna.objects.order_by('id')
 
 class DetailViewStavkeRacuna(generic.DetailView):
     model =  StavkeRacuna
     template_name = 'approda/stavke_racuna_details.html'
     def get_object(self):
-        id_ = self.kwargs.get('pk')
-        return get_object_or_404(StavkeRacuna, pk_stavke_racuna=id_)
+        id_ = self.kwargs.get('id')
+        return get_object_or_404(StavkeRacuna, id=id_)
 
 class StavkeRacunaCreateView(generic.CreateView):
     template_name = 'approda/stavke_racuna_create.html'
@@ -173,14 +173,14 @@ class StavkeRacunaUpdateView(generic.UpdateView):
     def form_valid(self,form):
         return super().form_valid(form)
     def get_object(self):
-        id_ = self.kwargs.get('pk')
-        return get_object_or_404(StavkeRacuna, pk_stavke_racuna=id_)
+        id_ = self.kwargs.get('id')
+        return get_object_or_404(StavkeRacuna, id=id_)
 
 class StavkeRacunaDeleteView(generic.DeleteView):
     template_name = 'approda/stavke_racuna_delete.html'
     def get_object(self):
-        id_ = self.kwargs.get('pk')
-        return get_object_or_404(StavkeRacuna, pk_stavke_racuna=id_)
+        id_ = self.kwargs.get('id')
+        return get_object_or_404(StavkeRacuna, id=id_)
     def get_success_url(self):
         return reverse("stavke_racuna_index")
 
@@ -196,7 +196,7 @@ class DetailViewOtpremnice(generic.DetailView):
     model =  Otpremnice
     template_name = 'approda/otpremnice_details.html'
     def get_object(self):
-        id_ = self.kwargs.get('pk')
+        id_ = self.kwargs.get('id')
         return get_object_or_404(Otpremnice, sifra_otpremnice=id_)
 
 class OtpremniceCreateView(generic.CreateView):
@@ -212,13 +212,13 @@ class OtpremniceUpdateView(generic.UpdateView):
     def form_valid(self,form):
         return super().form_valid(form)
     def get_object(self):
-        id_ = self.kwargs.get('pk')
+        id_ = self.kwargs.get('id')
         return get_object_or_404(Otpremnice, sifra_otpremnice=id_)
 
 class OtpremniceDeleteView(generic.DeleteView):
     template_name = 'approda/otpremnice_delete.html'
     def get_object(self):
-        id_ = self.kwargs.get('pk')
+        id_ = self.kwargs.get('id')
         return get_object_or_404(Otpremnice, sifra_otpremnice=id_)
     def get_success_url(self):
         return reverse("otpremnice_index")
@@ -235,7 +235,7 @@ class DetailViewDobavljaci(generic.DetailView):
     model =  Dobavljaci
     template_name = 'approda/dobavljaci_details.html'
     def get_object(self):
-        id_ = self.kwargs.get('pk')
+        id_ = self.kwargs.get('id')
         return get_object_or_404(Dobavljaci, sifra_dobavljaca=id_)
 
 class DobavljaciCreateView(generic.CreateView):
@@ -251,13 +251,13 @@ class DobavljaciUpdateView(generic.UpdateView):
     def form_valid(self,form):
         return super().form_valid(form)
     def get_object(self):
-        id_ = self.kwargs.get('pk')
+        id_ = self.kwargs.get('id')
         return get_object_or_404(Dobavljaci, sifra_dobavljaca=id_)
 
 class DobavljaciDeleteView(generic.DeleteView):
     template_name = 'approda/dobavljaci_delete.html'
     def get_object(self):
-        id_ = self.kwargs.get('pk')
+        id_ = self.kwargs.get('id')
         return get_object_or_404(Dobavljaci, sifra_dobavljaca=id_)
     def get_success_url(self):
         return reverse("dobavljaci_index")

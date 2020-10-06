@@ -3,7 +3,7 @@
 {% block content %}
 <div class="form_div">
 <form action='.', method='POST'>{% csrf_token %}
-  <h2>Da li zelite da obrisete evidenciju "{{ object.pk_evidencije_prijema }}" ?</h2>
+  <h2>Da li želite da obrišete evidenciju "{{ object.id }}" ?</h2>
   <p><input type="submit" value="Da" /> </p>
   <p><a href="{% url 'evidencije_prijema_index' %}">Nazad</a></p>
 </form>

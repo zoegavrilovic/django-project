@@ -76,12 +76,12 @@ WSGI_APPLICATION = 'roda.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'xe',
-        'USER': 'zoe',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'roda',
+        'USER': 'postgres',
         'PASSWORD': 'admin',
-        'HOST':'127.0.0.1',
-        'PORT':'1521',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
